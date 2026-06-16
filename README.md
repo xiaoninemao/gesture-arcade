@@ -80,3 +80,7 @@ ditto -c -k --sequesterRsrc --keepParent "outputs/Gesture Arcade.app" "outputs/G
 ## 隐私说明
 
 摄像头画面仅用于本机实时手势识别。游戏逻辑只读取手势结果和控制点位置，不会上传摄像头画面。
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
