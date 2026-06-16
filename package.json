@@ -1,0 +1,7 @@
+{
+  "name": "gesture-star-catcher",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 4173"
+  }
+}

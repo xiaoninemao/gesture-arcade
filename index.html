@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gesture Arcade</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <aside class="app-bar">
+        <div class="brand"><span class="brand-mark">G</span><span>Gesture Play</span></div>
+        <nav class="side-nav" aria-label="主导航">
+          <button id="homeNav" class="side-item active"><span>⌂</span>首页</button>
+          <button id="gamesNav" class="side-item"><span>▦</span>游戏</button>
+          <button id="achievementsNav" class="side-item"><span>◇</span>成就</button>
+          <button id="settingsNav" class="side-item"><span>⚙</span>设置</button>
+        </nav>
+        <button id="profileButton" class="profile"><span class="avatar">P1</span><span><b>Player One</b><small>Lv.1 · <b id="profileStars">0</b> 星光</small></span><span class="profile-arrow">›</span></button>
+      </aside>
+
+      <div id="homeView" class="home-view">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">GESTURE ARCADE FOR MAC</p>
+            <h1>用手势，<br /><span>玩转游戏</span></h1>
+            <p class="subtitle">无需手柄，也无需键盘。抬起手，让摄像头把每一个动作变成游戏里的精彩瞬间。</p>
+            <p class="local-note">画面仅在你的 Mac 本机处理</p>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="motion-ring ring-one"></div>
+            <div class="motion-ring ring-two"></div>
+            <img src="./assets/hero-character-cropped.png" alt="" />
+            <button id="homeCameraCheck" class="home-camera-check">
+              <span class="home-camera-preview"><video id="homeWebcam" autoplay muted playsinline></video><i id="homeCameraSymbol">◎</i></span>
+              <span><b id="homeCameraTitle">检测摄像头</b><small id="homeCameraText">识别手掌后即可解锁游戏</small></span>
+              <strong>开始检测</strong>
+            </button>
+          </div>
+          <div class="star-balance"><span>✦</span><b id="starBalance">0</b></div>
+        </section>
+
+        <section id="gameLibrary" class="game-library">
+          <div class="library-head"><div><p class="eyebrow">POPULAR GAMES</p><h2>热门游戏</h2></div><button id="viewAllGames" class="text-button">查看全部游戏　→</button></div>
+          <nav class="game-picker" aria-label="选择游戏">
+            <button class="game-tab locked" data-game="catch" disabled>
+              <span class="tab-art space-art"></span>
+              <span class="tab-info"><em>指尖控制</em><b>星际穿越</b><small>收集核心、躲避陨石，用护盾延续连击。</small><strong>进入游戏　→</strong></span>
+            </button>
+            <button class="game-tab locked" data-game="pinch" disabled>
+              <span class="tab-art basket-art"></span>
+              <span class="tab-info"><em>阶段篮筐</em><b>投篮高手</b><small>五种篮筐运动模式，精准投篮获得 Perfect。</small><strong>进入游戏　→</strong></span>
+            </button>
+            <button class="game-tab locked" data-game="reaction" disabled>
+              <span class="tab-art jungle-art"></span>
+              <span class="tab-info"><em>路线跑酷</em><b>丛林跳跃</b><small>破解组合路段、藤蔓与能量路线。</small><strong>进入游戏　→</strong></span>
+            </button>
+          </nav>
+        </section>
+      </div>
+
+      <div id="catalogView" class="catalog-view hidden">
+        <header class="catalog-head">
+          <div><p class="eyebrow">ALL GAMES</p><h2>全部游戏</h2><p>探索所有手势玩法。完成首页摄像头检测后，即可进入可玩游戏。</p></div>
+          <div class="catalog-summary"><span>可玩游戏</span><strong>6</strong><small>六种完整手势玩法</small></div>
+        </header>
+        <section class="catalog-section">
+          <div class="catalog-section-head"><h3>现在可玩</h3><span>使用摄像头手势直接控制</span></div>
+          <nav class="game-picker catalog-picker" aria-label="全部可玩游戏">
+            <button class="game-tab locked" data-game="catch" disabled>
+              <span class="tab-art space-art"></span>
+              <span class="tab-info"><em>指尖控制</em><b>星际穿越</b><small>收集核心、躲避陨石，用护盾延续连击。</small><strong>进入游戏　→</strong></span>
+            </button>
+            <button class="game-tab locked" data-game="pinch" disabled>
+              <span class="tab-art basket-art"></span>
+              <span class="tab-info"><em>阶段篮筐</em><b>投篮高手</b><small>五种篮筐运动模式，精准投篮获得 Perfect。</small><strong>进入游戏　→</strong></span>
+            </button>
+            <button class="game-tab locked" data-game="reaction" disabled>
+              <span class="tab-art jungle-art"></span>
+              <span class="tab-info"><em>路线跑酷</em><b>丛林跳跃</b><small>破解组合路段、藤蔓与能量路线。</small><strong>进入游戏　→</strong></span>
+            </button>
+            <button class="game-tab locked" data-game="ocean" disabled>
+              <span class="tab-art ocean-art"></span>
+              <span class="tab-info"><em>成长吞噬</em><b>海底吞噬</b><small>从小鱼开始吞噬成长，避开比你更大的猎手。</small><strong>进入游戏　→</strong></span>
+            </button>
+            <button class="game-tab locked" data-game="rhythm" disabled>
+              <span class="tab-art rhythm-art"></span>
+              <span class="tab-info"><em>手势节拍</em><b>节奏守门</b><small>在判定环内做出指定手势，守住水晶舞台。</small><strong>进入游戏　→</strong></span>
+            </button>
+            <button class="game-tab locked" data-game="tower" disabled>
+              <span class="tab-art tower-art"></span>
+              <span class="tab-info"><em>捏合施法</em><b>魔法守塔</b><small>瞄准来袭魔物，捏合发射法术保卫天空城堡。</small><strong>进入游戏　→</strong></span>
+            </button>
+          </nav>
+        </section>
+      </div>
+
+      <div id="gameView" class="game-view hidden">
+        <header class="game-page-head">
+          <button id="backHome" class="back-button">‹ 返回首页</button>
+          <div><p class="eyebrow">NOW PLAYING</p><h2 id="gamePageTitle">星际穿越</h2><p id="gameDescription">左右移动食指，驾驶飞船收集掉落的能量星。</p></div>
+          <div class="scoreboard">
+            <div><span>当前得分</span><strong id="score">0</strong></div>
+            <div><span id="metricLabel">生命</span><strong id="metric">♥ ♥ ♥</strong></div>
+          </div>
+        </header>
+
+        <section class="game-shell">
+          <canvas id="game" width="1200" height="680" aria-label="手势小游戏"></canvas>
+          <div class="game-hud">
+            <div class="hud-chip"><span>连击</span><strong id="comboValue">0</strong></div>
+            <div class="hud-progress"><div><span id="stageLabel">阶段 1</span><strong id="missionLabel">准备开始</strong></div><i><b id="missionProgress"></b></i></div>
+            <div class="hud-chip accent"><span>倍率</span><strong id="multiplierValue">×1</strong></div>
+          </div>
+          <div id="gameCallout" class="game-callout hidden">PERFECT</div>
+          <aside class="camera-card">
+            <div class="camera-head"><span>FaceTime 摄像头</span><span id="status" class="status">尚未连接</span></div>
+            <div class="camera-view">
+              <video id="webcam" autoplay muted playsinline></video>
+              <canvas id="overlay"></canvas>
+              <div id="cameraPlaceholder"><span class="camera-symbol">◎</span><p>画面只在这台 Mac 上处理</p></div>
+            </div>
+            <div class="gesture-readout"><span id="trackingLabel">识别手势</span><strong id="gestureName">等待摄像头</strong></div>
+            <button id="cameraButton">连接摄像头</button>
+            <button id="helpButton" class="secondary">摄像头打不开？</button>
+          </aside>
+
+          <div id="welcomeOverlay" class="game-overlay">
+            <div class="overlay-card">
+              <span class="mode-label">GESTURE MODE</span>
+              <h2 id="welcomeTitle">星际穿越</h2>
+              <p id="welcomeText">左右移动食指驾驶飞船，收集宇宙中的星星。</p>
+              <div class="overlay-actions"><button id="connectAndPlay">手势检测通过，开始游戏</button></div>
+            </div>
+          </div>
+          <div id="gameOver" class="game-overlay hidden"><div class="overlay-card"><span class="mode-label">ROUND COMPLETE</span><h2>本轮得分 <span id="finalScore">0</span></h2><p id="resultSummary">完成阶段 1 · 最高连击 0</p><button id="restartButton">再玩一次</button></div></div>
+        </section>
+
+        <section id="cameraHelp" class="help-panel hidden">
+          <button id="closeHelp" class="close-help">×</button>
+          <h2>摄像头连接指南</h2>
+          <ol><li>在系统提示中允许 Gesture Arcade 使用摄像头。</li><li>若曾拒绝，请打开“系统设置 → 隐私与安全性 → 摄像头”。</li><li>关闭正在占用摄像头的 FaceTime、Zoom 或腾讯会议，然后重试。</li></ol>
+          <p id="cameraError" class="error-detail">尚未检测到错误。</p>
+        </section>
+      </div>
+
+      <div id="utilityPanel" class="utility-panel hidden" role="dialog" aria-modal="true">
+        <button id="closeUtility" class="utility-backdrop" aria-label="关闭"></button>
+        <section class="utility-card">
+          <button id="utilityCloseButton" class="utility-close" aria-label="关闭">×</button>
+          <p id="utilityEyebrow" class="eyebrow">PLAYER PROFILE</p>
+          <h2 id="utilityTitle">Player One</h2>
+          <div id="utilityContent"></div>
+        </section>
+      </div>
+    </main>
+    <script defer src="./game.js"></script>
+  </body>
+</html>
